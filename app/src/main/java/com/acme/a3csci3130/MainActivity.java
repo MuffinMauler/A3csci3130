@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
         };
         mBusinessListView.setAdapter(firebaseAdapter);
         mBusinessListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            // onItemClick method is called everytime a user clicks an item on the list
+            // onItemClick method is called every time a user clicks an item on the list
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Business bus = (Business) firebaseAdapter.getItem(position);

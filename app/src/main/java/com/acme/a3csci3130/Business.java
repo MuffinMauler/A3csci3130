@@ -26,11 +26,11 @@ public class Business implements Serializable {
 
     public Business(String businessNumber, String name,
                     String primaryBusiness, String address, String location){
-        mBusinessNumber = businessNumber;
-        mName = name;
-        mPrimaryBusiness = primaryBusiness;
-        mAddress = address;
-        mLocation = location;
+        mBusinessNumber     = businessNumber;
+        mName               = name;
+        mPrimaryBusiness    = primaryBusiness;
+        mAddress            = address;
+        mLocation           = location;
     }
 
     @Exclude
