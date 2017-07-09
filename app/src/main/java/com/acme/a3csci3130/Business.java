@@ -44,4 +44,12 @@ public class Business implements Serializable {
 
         return result;
     }
+
+    //get methods to avoid a pet peeve
+    public String getBusinessNumber() { return mBusinessNumber; }
+    public String getName() { return mName; }
+    public String getPrimaryBusiness () { return mPrimaryBusiness; }
+    public String getAddress () { return mAddress; }
+    public String getLocation () { return mLocation; }
+
 }
