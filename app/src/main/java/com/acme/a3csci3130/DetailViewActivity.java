@@ -8,21 +8,28 @@ import android.widget.EditText;
 
 public class DetailViewActivity extends Activity {
 
-    private EditText nameField, emailField;
-    Contact receivedPersonInfo;
+    private EditText mNumField, mNameField, mPrimaryField, mAddressField, mLocationField;
+    Business mReceivedBusinessInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_view);
-        receivedPersonInfo = (Contact)getIntent().getSerializableExtra("Contact");
+        mReceivedBusinessInfo = (Business)getIntent().getSerializableExtra("Contact");
 
-        nameField = (EditText) findViewById(R.id.name);
-        emailField = (EditText) findViewById(R.id.email);
+        //instantiate text fields
+        mNumField       = (EditText) findViewById(R.id.num);
+        mNameField      = (EditText) findViewById(R.id.name);
+        mPrimaryField   = (EditText) findViewById(R.id.primary);
+        mAddressField   = (EditText) findViewById(R.id.address);
+        mLocationField  = (EditText) findViewById(R.id.location);
 
-        if(receivedPersonInfo != null){
-            nameField.setText(receivedPersonInfo.name);
-            emailField.setText(receivedPersonInfo.email);
+        if(mReceivedBusinessInfo != null){
+            mNumField.setText(mReceivedBusinessInfo.getBusinessNumber());
+            mNameField.setText(mReceivedBusinessInfo.getName());
+            mPrimaryField.setText(mReceivedBusinessInfo.getPrimaryBusiness());
+            mAddressField.setText(mReceivedBusinessInfo.getAddress());
+            mLocationField.setText(mReceivedBusinessInfo.getLocation());
         }
     }
 
