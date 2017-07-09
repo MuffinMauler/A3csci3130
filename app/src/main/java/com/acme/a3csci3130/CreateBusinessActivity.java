@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CreateContactAcitivity extends Activity {
+public class CreateBusinessActivity extends Activity {
 
     private Button submitButton;
     private EditText nameField, emailField;
@@ -15,7 +15,7 @@ public class CreateContactAcitivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_contact_acitivity);
+        setContentView(R.layout.activity_create_business_acitivity);
         //Get the app wide shared variables
         appState = ((MyApplicationData) getApplicationContext());
 
