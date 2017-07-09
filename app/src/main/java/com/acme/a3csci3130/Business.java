@@ -14,11 +14,11 @@ import java.util.Map;
 
 public class Business implements Serializable {
 
-    public  String mBusinessNumber; //required, 9-digit number
-    public  String mName; //required, 2-48 characters
-    public  String mPrimaryBusiness; //required,  {Fisher, Distributor, Processor, Fish Monger}
-    public  String mAddress; //less than 50 characters
-    public  String mLocation; //2 letters representing province/territory
+    private  String mBusinessNumber; //required, 9-digit number
+    private  String mName; //required, 2-48 characters
+    private  String mPrimaryBusiness; //required,  {Fisher, Distributor, Processor, Fish Monger}
+    private  String mAddress; //less than 50 characters
+    private  String mLocation; //2 letters representing province/territory
 
     public Business() {
         // Default constructor required for calls to DataSnapshot.getValue

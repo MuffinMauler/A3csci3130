@@ -9,29 +9,33 @@ import android.widget.EditText;
 public class CreateBusinessActivity extends Activity {
 
     private Button submitButton;
-    private EditText nameField, emailField;
-    private MyApplicationData appState;
+    private EditText mNameField, mPrimaryField, mAddressField, mLocationField;
+    private MyApplicationData mAppState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_business_acitivity);
         //Get the app wide shared variables
-        appState = ((MyApplicationData) getApplicationContext());
+        mAppState = ((MyApplicationData) getApplicationContext());
 
-        submitButton = (Button) findViewById(R.id.submitButton);
-        nameField = (EditText) findViewById(R.id.name);
-        emailField = (EditText) findViewById(R.id.email);
+        submitButton    = (Button) findViewById(R.id.submitButton);
+        mNameField      = (EditText) findViewById(R.id.name);
+        mPrimaryField   = (EditText) findViewById(R.id.primary);
+        mAddressField   = (EditText) findViewById(R.id.address);
+        mLocationField  = (EditText) findViewById(R.id.location);
     }
 
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
-        String personID = appState.firebaseReference.push().getKey();
-        String name = nameField.getText().toString();
-        String email = emailField.getText().toString();
-        Contact person = new Contact(personID, name, email);
+        String businessID = mAppState.firebaseReference.push().getKey();
+        String name = mNameField.getText().toString();
+        String primary = mPrimaryField.getText().toString();
+        String address = mAddressField.getText().toString();
+        String location = mLocationField.getText().toString();
+        Business bus = new Business(businessID, name, primary, address, location);
 
-        appState.firebaseReference.child(personID).setValue(person);
+        mAppState.firebaseReference.child(businessID).setValue(bus);
 
         finish();
 

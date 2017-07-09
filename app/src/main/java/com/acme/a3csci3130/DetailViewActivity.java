@@ -15,9 +15,9 @@ public class DetailViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_view);
-        mReceivedBusinessInfo = (Business)getIntent().getSerializableExtra("Contact");
+        mReceivedBusinessInfo = (Business)getIntent().getSerializableExtra("Business");
 
-        //instantiate text fields
+        //initialize text fields
         mNumField       = (EditText) findViewById(R.id.num);
         mNameField      = (EditText) findViewById(R.id.name);
         mPrimaryField   = (EditText) findViewById(R.id.primary);
@@ -33,11 +33,11 @@ public class DetailViewActivity extends Activity {
         }
     }
 
-    public void updateContact(View v){
+    public void updateBusiness(View v){
         //TODO: Update contact funcionality
     }
 
-    public void eraseContact(View v)
+    public void eraseBusiness(View v)
     {
         //TODO: Erase contact functionality
     }
