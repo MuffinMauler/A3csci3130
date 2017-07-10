@@ -63,7 +63,7 @@ public class CreateBusinessActivity extends Activity {
         }
 
         if (name.length() > 48 || name.length() < 2) { //if name is not a proper length
-            error += "Invalid name length";
+            error += "Invalid name length\n";
         }
 
         if (primary.equals("Select a Primary Business")) {
@@ -81,7 +81,6 @@ public class CreateBusinessActivity extends Activity {
 
         //remove me or use me later
         Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();
-        //Toast.makeText(getApplicationContext(), location, Toast.LENGTH_SHORT).show();
 
         Business bus = new Business(businessID, businessNum, name, primary, address, location);
 
