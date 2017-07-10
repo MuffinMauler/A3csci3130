@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 public class CreateBusinessActivity extends Activity {
 
-    private Button mSubmitButton;
     private EditText mNumField, mNameField, mAddressField;
     private Spinner mPrimarySpinner, mLocationSpinner;
     private MyApplicationData mAppState;
@@ -23,7 +22,6 @@ public class CreateBusinessActivity extends Activity {
         //Get the app wide shared variables
         mAppState = ((MyApplicationData) getApplicationContext());
 
-        mSubmitButton    = (Button) findViewById(R.id.submitButton);
         mNumField       = (EditText) findViewById(R.id.num);
         mNameField      = (EditText) findViewById(R.id.name);
         mAddressField   = (EditText) findViewById(R.id.address);
