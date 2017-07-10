@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
             // onItemClick method is called every time a user clicks an item on the list
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Business bus = (Business) firebaseAdapter.getItem(position);
+                Business bus = firebaseAdapter.getItem(position);
                 showDetailView(bus);
             }
         });
