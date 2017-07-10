@@ -79,24 +79,13 @@ public class CreateBusinessActivity extends Activity {
             location = "Not specified";
         }
 
-        //remove me or use me later
-        Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();
-
         Business bus = new Business(businessID, businessNum, name, primary, address, location);
-
-
-        //https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
-
-        //if ()
-
-        //if a primary business has not been chosen
-        if (location.equals("Select a Primary Business")) {
-            error += "You must select a primary business\n";
-        }
 
         if (error.isEmpty()) { //if there are no errors
             mAppState.firebaseReference.child(businessID).setValue(bus); //add the business
             finish();
+        } else { //otherwise
+            Toast.makeText(getApplicationContext(), "Error: " + error, Toast.LENGTH_SHORT).show(); //send toast
         }
 
     }
