@@ -58,7 +58,7 @@ public class UpdateTest {
         onView(withId(R.id.location)).perform(replaceText(testLocation));
         closeSoftKeyboard();
 
-        //click the updated business
+        //click the update button
         onView(withId(R.id.updateButton)).perform(click());
 
         //confirm that it is in fact updated
