@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 public class CreateBusinessActivity extends Activity {
 
-    private EditText mNumField, mNameField, mAddressField;
-    private Spinner mPrimarySpinner, mLocationSpinner;
+    private EditText mNumField, mNameField, mPrimaryField, mAddressField, mLocationField;
     private MyApplicationData mAppState;
 
     @Override
@@ -23,22 +21,9 @@ public class CreateBusinessActivity extends Activity {
 
         mNumField       = (EditText) findViewById(R.id.num);
         mNameField      = (EditText) findViewById(R.id.name);
+        mPrimaryField   = (EditText) findViewById(R.id.primary);
         mAddressField   = (EditText) findViewById(R.id.address);
-
-        //populate a spinner with primary business
-        mPrimarySpinner   = (Spinner) findViewById(R.id.primary);
-        mLocationSpinner  = (Spinner) findViewById(R.id.location);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
-                (this, R.array.primary_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mPrimarySpinner.setAdapter(adapter);
-
-        adapter = ArrayAdapter.createFromResource
-                (this, R.array.location_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mLocationSpinner.setAdapter(adapter);
-
+        mLocationField  = (EditText) findViewById(R.id.location);
     }
 
     public void submitInfoButton(View v) {
@@ -46,9 +31,9 @@ public class CreateBusinessActivity extends Activity {
         String businessID = mAppState.firebaseReference.push().getKey();
         String businessNum = mNumField.getText().toString();
         String name = mNameField.getText().toString();
-        String primary = mPrimarySpinner.getSelectedItem().toString();
+        String primary = mPrimaryField.getText().toString();
         String address = mAddressField.getText().toString();
-        String location = mLocationSpinner.getSelectedItem().toString();
+        String location = mLocationField.getText().toString();
 
         /*
             Tracks errors caused by incorrect input

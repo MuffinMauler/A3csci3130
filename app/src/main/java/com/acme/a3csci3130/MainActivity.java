@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
             @Override
             protected void populateView(View v, Business model, int position) {
                 TextView businessName = (TextView)v.findViewById(android.R.id.text1);
-                businessName.setText(model.getName());
+                businessName.setText(model.name);
             }
         };
         mBusinessListView.setAdapter(firebaseAdapter);

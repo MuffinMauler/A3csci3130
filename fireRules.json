@@ -3,23 +3,23 @@
     ".read": "true",
     ".write": "true",
     "contacts": {
-            "$business": {
-                "number": {
-                    ".validate": "newData.isString() && newData.val().length === 9 && newData.val().matches(\\d*)"
-                },
-                "name": {
-                    ".validate": "newData.isString() && newData.val().length < 49 && newData.val().length > 1"
-                },
-                "primary": {
-                    ".validate": "newData.isString() && newData.val().matches(Fisher|Distributor|Processor|Fish\\sMonger)"
-                },
-                "address": {
-                  ".validate": "newData.isString() && newData.val().length < 50"
-                },
-                "location": {
-                  ".validate": "newData.isString() && newData.val().matches(AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT|Not\\sSpecified)"
-                }
-            }
+      "$business": {
+        "number": {
+          ".validate": "newData.isString() && newData.val().matches(/^\\d{9}$/i)"
+        },
+        "name": {
+          ".validate": "newData.isString() && newData.val().length < 49 && newData.val().length > 1"
+        },
+        "primary": {
+          ".validate": "newData.isString() && newData.val().matches(/^Fisher|Distributor|Processor|Fish Monger$/)"
+        },
+        "address": {
+          ".validate": "newData.isString() && newData.val().length < 50"
+        },
+        "location": {
+          ".validate": "newData.isString() && newData.val().matches(/^AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT|Not Specified$/)"
         }
+      }
+    }
   }
 }

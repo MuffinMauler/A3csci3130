@@ -28,10 +28,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp" />
 
-    <Spinner
+    <EditText
         android:id="@+id/primary"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
+        android:hint="Primary Business"
         app:layout_constraintTop_toBottomOf="@id/name"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"
@@ -49,10 +50,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp" />
 
-    <Spinner
+    <EditText
         android:id="@+id/location"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
+        android:hint="Province/Territory"
         app:layout_constraintTop_toBottomOf="@id/address"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"

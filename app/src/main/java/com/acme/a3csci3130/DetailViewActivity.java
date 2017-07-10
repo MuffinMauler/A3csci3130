@@ -3,7 +3,6 @@ package com.acme.a3csci3130;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class DetailViewActivity extends Activity {
@@ -25,11 +24,11 @@ public class DetailViewActivity extends Activity {
         mLocationField  = (EditText) findViewById(R.id.location);
 
         if(mReceivedBusinessInfo != null){
-            mNumField.setText(mReceivedBusinessInfo.getBusinessNumber());
-            mNameField.setText(mReceivedBusinessInfo.getName());
-            mPrimaryField.setText(mReceivedBusinessInfo.getPrimaryBusiness());
-            mAddressField.setText(mReceivedBusinessInfo.getAddress());
-            mLocationField.setText(mReceivedBusinessInfo.getLocation());
+            mNumField.setText(mReceivedBusinessInfo.businessNumber);
+            mNameField.setText(mReceivedBusinessInfo.name);
+            mPrimaryField.setText(mReceivedBusinessInfo.primaryBusiness);
+            mAddressField.setText(mReceivedBusinessInfo.address);
+            mLocationField.setText(mReceivedBusinessInfo.location);
         }
     }
 
