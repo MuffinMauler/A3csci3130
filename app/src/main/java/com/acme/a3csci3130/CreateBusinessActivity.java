@@ -7,6 +7,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
+import static java.util.Arrays.sort;
+
 public class CreateBusinessActivity extends Activity {
 
     private EditText mNumField, mNameField, mPrimaryField, mAddressField, mLocationField;
@@ -26,6 +30,13 @@ public class CreateBusinessActivity extends Activity {
         mLocationField  = (EditText) findViewById(R.id.location);
     }
 
+    /**
+     * Submits the info for a newly defined business.
+     *
+     * The business will not be submitted if any of the info is invalid.
+     *
+     * @param v Current view
+     */
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
         String businessID = mAppState.firebaseReference.push().getKey();
@@ -39,6 +50,10 @@ public class CreateBusinessActivity extends Activity {
             Tracks errors caused by incorrect input
          */
         String error = "";
+        String primaries[] = {"Fisher", "Distributor", "Processor", "Fish Monger"};
+        Arrays.sort(primaries);
+        String locations[] = {"AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK", "YT", ""};
+        Arrays.sort(locations);
 
         if (!businessNum.matches("\\d\\d\\d\\d\\d\\d\\d\\d\\d")) { //if businessNum is not 9 digits
             error += "Business Number is not 9 digits\n";
@@ -48,12 +63,16 @@ public class CreateBusinessActivity extends Activity {
             error += "Invalid name length\n";
         }
 
-        if (primary.equals("Select a Primary Business")) {
-            error += "Primary Business not selected\n";
+        if (Arrays.binarySearch(primaries, primary) < 0) {
+            error += "Primary Business invalid\n";
         }
 
         if (address.length() > 49) {
             error += "Address too long\n";
+        }
+
+        if (Arrays.binarySearch(locations, location) < 0) {
+            error += "Invalid location\n";
         }
 
         Business bus = new Business(businessID, businessNum, name, primary, address, location);

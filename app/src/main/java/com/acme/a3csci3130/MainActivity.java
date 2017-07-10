@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends Activity {
 
-
     private ListView mBusinessListView;
     private FirebaseListAdapter<Business> firebaseAdapter;
 
@@ -58,6 +57,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    /**
+     * Shows the details of the selected business.
+     *
+     * @param bus Business selected by the user.
+     */
     private void showDetailView(Business bus)
     {
         Intent intent = new Intent(this, DetailViewActivity.class);

@@ -24,6 +24,19 @@ public class Business implements Serializable {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
+    /**
+     * Creates a new instance of a business with the given parameters.
+     *
+     * @param ID Identifier for the business.
+     * @param businessNumber 9-digit number for the business. Required.
+     * @param name Name of the business. Must be between 2 and 48 characters.
+     *          Required.
+     * @param primaryBusiness The role of the business in the fish market.
+     *          Not required.
+     * @param address Address of the business. Not required.
+     * @param location Province/Territory of the business. Must be a predefined
+     *          value.
+     */
     public Business(String ID, String businessNumber, String name,
                     String primaryBusiness, String address, String location){
         businessID = ID;
