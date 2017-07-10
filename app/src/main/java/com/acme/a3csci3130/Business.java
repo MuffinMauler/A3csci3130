@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class Business implements Serializable {
 
+    private  String mBusinessID; //ID set by firebase
     private  String mBusinessNumber; //required, 9-digit number
     private  String mName; //required, 2-48 characters
     private  String mPrimaryBusiness; //required,  {Fisher, Distributor, Processor, Fish Monger}
@@ -24,8 +25,9 @@ public class Business implements Serializable {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
-    public Business(String businessNumber, String name,
+    public Business(String ID, String businessNumber, String name,
                     String primaryBusiness, String address, String location){
+        mBusinessID         = ID;
         mBusinessNumber     = businessNumber;
         mName               = name;
         mPrimaryBusiness    = primaryBusiness;
@@ -46,6 +48,7 @@ public class Business implements Serializable {
     }
 
     //get methods to avoid a pet peeve
+    public String getBusinessID () { return mBusinessID; }
     public String getBusinessNumber() { return mBusinessNumber; }
     public String getName() { return mName; }
     public String getPrimaryBusiness () { return mPrimaryBusiness; }

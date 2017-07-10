@@ -3,7 +3,7 @@
     ".read": "true",
     ".write": "true",
     "contacts": {
-            "$contact": {
+            "$business": {
                 "name": {
                     ".validate": "newData.isString() && newData.val().length < 50"
                 },
