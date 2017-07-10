@@ -47,35 +47,58 @@ public class CreateBusinessActivity extends Activity {
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
         String businessID = mAppState.firebaseReference.push().getKey();
-        String businessNum = mNumField.getText().toString(); //num
+        String businessNum = mNumField.getText().toString();
         String name = mNameField.getText().toString();
         String primary = mPrimarySpinner.getSelectedItem().toString();
         String address = mAddressField.getText().toString();
         String location = mLocationSpinner.getSelectedItem().toString();
 
-        //if location was not entered, account for this
-        if (location.equals("Select a Province/Territory (Optional)")) {
+        /*
+            Tracks errors caused by incorrect input
+         */
+        String error = "";
+
+        if (!businessNum.matches("\\d\\d\\d\\d\\d\\d\\d\\d\\d")) { //if businessNum is not 9 digits
+            error += "Business Number is not 9 digits\n";
+        }
+
+        if (name.length() > 48 || name.length() < 2) { //if name is not a proper length
+            error += "Invalid name length";
+        }
+
+        if (primary.equals("Select a Primary Business")) {
+            error += "Primary Business not selected\n";
+        }
+
+        if (address.length() > 49) {
+            error += "Address too long\n";
+        }
+
+        //this is not an error
+        if (location.equals("Select a Province/Territory (Optional)")) { //if location not selected
             location = "Not specified";
         }
 
         //remove me or use me later
-        Toast.makeText(getApplicationContext(), location, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), location, Toast.LENGTH_SHORT).show();
 
-        Business bus = new Business(businessID, name, primary, address, location);
+        Business bus = new Business(businessID, businessNum, name, primary, address, location);
 
-        String error = "";
+
         //https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+
+        //if ()
 
         //if a primary business has not been chosen
         if (location.equals("Select a Primary Business")) {
             error += "You must select a primary business\n";
         }
 
-        //if (name.isEmpty() || )
-
-        mAppState.firebaseReference.child(businessID).setValue(bus);
-
-        finish();
+        if (error.isEmpty()) { //if there are no errors
+            mAppState.firebaseReference.child(businessID).setValue(bus); //add the business
+            finish();
+        }
 
     }
 }
