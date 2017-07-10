@@ -56,11 +56,6 @@ public class CreateBusinessActivity extends Activity {
             error += "Address too long\n";
         }
 
-        //this is not an error
-        if (location.equals("Select a Province/Territory (Optional)")) { //if location not selected
-            location = "Not specified";
-        }
-
         Business bus = new Business(businessID, businessNum, name, primary, address, location);
 
         if (error.isEmpty()) { //if there are no errors

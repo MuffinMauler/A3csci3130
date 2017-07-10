@@ -4,11 +4,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import com.firebase.ui.database.FirebaseListAdapter;
 
 public class DetailViewActivity extends Activity {
 
     private EditText mNumField, mNameField, mPrimaryField, mAddressField, mLocationField;
     Business mReceivedBusinessInfo;
+    private ListView mBusinessListView;
+    private FirebaseListAdapter<Business> firebaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +38,7 @@ public class DetailViewActivity extends Activity {
     }
 
     public void updateBusiness(View v){
-        //TODO: Update contact funcionality
+
     }
 
     public void eraseBusiness(View v)
