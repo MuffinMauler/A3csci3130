@@ -38,9 +38,9 @@ public class Business implements Serializable {
     @Exclude
     public Map<String, Object> toMap(){
         HashMap<String, Object> result = new HashMap<>();
-        result.put("businessNumber", mBusinessNumber);
+        result.put("number", mBusinessNumber);
         result.put("name", mName);
-        result.put("primaryBusiness", mPrimaryBusiness);
+        result.put("primary", mPrimaryBusiness);
         result.put("address", mAddress);
         result.put("location", mLocation);
 
